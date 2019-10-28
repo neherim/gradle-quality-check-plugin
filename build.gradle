@@ -9,16 +9,6 @@ plugins {
     id 'java-library'
 }
 
-gradlePlugin {
-    plugins {
-        qualityCheckPlugin {
-            id = 'com.github.neherim.quality.check'
-            implementationClass = 'com.github.neherim.quality.check.QualityCheckPlugin'
-        }
-    }
-}
-
-
 group 'com.github.neherim'
 version '0.0.1-SNAPSHOT'
 
@@ -39,6 +29,27 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     testImplementation 'junit:junit:4.12'
     fixtureClasspath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+}
+gradlePlugin {
+    plugins {
+        qualityCheckPlugin {
+            id = 'com.github.neherim.quality.check'
+            implementationClass = 'com.github.neherim.quality.check.QualityCheckPlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = ''
+    vcsUrl = ''
+
+    plugins {
+        codeQualityToolsPlugin {
+            displayName = ''
+            tags = []
+            description = 'Checkstyle for every subproject.'
+        }
+    }
 }
 
 compileKotlin {
