@@ -4,7 +4,7 @@ buildscript {
 
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.41'
-    id "com.gradle.plugin-publish" version "0.10.1"
+    id 'com.gradle.plugin-publish' version '0.10.1'
     id 'java-gradle-plugin'
     id 'java-library'
 }
@@ -30,6 +30,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     fixtureClasspath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 }
+
 gradlePlugin {
     plugins {
         qualityCheckPlugin {
@@ -40,13 +41,13 @@ gradlePlugin {
 }
 
 pluginBundle {
-    website = ''
-    vcsUrl = ''
+    website = 'https://github.com/neherim/gradle-quality-check-plugin'
+    vcsUrl = 'https://github.com/neherim/gradle-quality-check-plugin'
 
     plugins {
-        codeQualityToolsPlugin {
-            displayName = ''
-            tags = []
+        qualityCheckPlugin {
+            displayName = 'Gradle Code Quality Check Plugin'
+            tags = ['check']
             description = 'Checkstyle for every subproject.'
         }
     }

@@ -6,7 +6,7 @@ import org.gradle.api.Project
 
 class QualityCheckPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        val extension = project.extensions.create("qualityCheck", QualityCheckExtension::class.java, project)
+        val extension = project.extensions.create("qualityCheck", QualityCheckExtension::class.java)
 
         if (project.subprojects.size > 0) {
             project.subprojects { subProject ->
@@ -22,6 +22,6 @@ class QualityCheckPlugin : Plugin<Project> {
     }
 
     private fun addCodeQualityTools(project: Project, rootProject: Project, extension: QualityCheckExtension) {
-        CheckstyleChecker.addCheckstyle(rootProject, extension.checkstyleExtension)
+        CheckstyleChecker.addCheckstyle(rootProject, project, extension.checkstyleExtension)
     }
 }
