@@ -1,4 +1,4 @@
-package com.github.neherim.quality.check.checkers
+package com.github.neherim.quality.check.tools
 
 import org.gradle.testkit.runner.GradleRunner
 import org.hamcrest.CoreMatchers
@@ -8,18 +8,28 @@ import java.io.File
 
 class TestProject(private val directory: TemporaryFolder) {
 
-    fun pluginSettings(settings: String) = apply {
+    fun pluginSettings(settings: String, dependencies: List<String> = listOf()) = apply {
+        val dependenciesBlock = if (dependencies.isNotEmpty()) {
+            """
+            dependencies { 
+              ${dependencies.joinToString("\n")} 
+            }
+            """.trimIndent()
+        } else {
+            ""
+        }
         directory.newFile("build.gradle").writeText(
             """
-          |plugins {
-          |  id "java"
-          |  id "com.github.neherim.quality.check"
-          |}
-          |$settings
-          |repositories {
-          |  mavenCentral()
-          |}
-          |""".trimMargin()
+            plugins {
+              id "java"
+              id "com.github.neherim.quality.check"
+            }
+            $settings
+            repositories {
+              mavenCentral()
+            }
+            $dependenciesBlock
+            """.trimIndent()
         )
     }
 
@@ -35,7 +45,8 @@ class TestProject(private val directory: TemporaryFolder) {
     }
 
     fun successBuild(taskToRun: String) = apply {
-        run(taskToRun).build()
+        val build = run(taskToRun).build()
+        println(build.output)
     }
 
     fun failBuild(taskToRun: String, containsMessage: String) = apply {

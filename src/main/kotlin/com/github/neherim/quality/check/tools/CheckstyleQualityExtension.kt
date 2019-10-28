@@ -1,4 +1,4 @@
-package com.github.neherim.quality.check.checkers
+package com.github.neherim.quality.check.tools
 
 open class CheckstyleQualityExtension {
     var enabled: Boolean = true

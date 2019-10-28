@@ -1,4 +1,4 @@
-package com.github.neherim.quality.check.checkers
+package com.github.neherim.quality.check.tools
 
 import org.gradle.api.Project
 import org.gradle.api.plugins.quality.Checkstyle
@@ -6,7 +6,7 @@ import org.gradle.api.plugins.quality.CheckstyleExtension
 import org.gradle.api.plugins.quality.CheckstylePlugin
 
 object CheckstyleChecker {
-    fun addChecker(root: Project, target: Project, ext: CheckstyleQualityExtension) {
+    fun addPlugin(root: Project, target: Project, ext: CheckstyleQualityExtension) {
         if (ext.enabled) {
             target.plugins.apply(CheckstylePlugin::class.java)
             target.extensions.configure(CheckstyleExtension::class.java) {
