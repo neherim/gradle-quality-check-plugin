@@ -11,17 +11,17 @@ class CheckstyleCheckerTest {
     private val emptyPluginDefinition = "qualityCheck { }"
 
     private val goodCodeSample = """
-                package test;
+                package good;
                 
-                class Foo {
+                class GoodClass {
                     private static final String VARIABLE = "UNUSED";
                 }
             """.trimIndent()
 
     private val badCodeSample = """
-                package test;
+                package bad;
                 
-                class Foo {
+                class BadClass {
                     private final static String VARIABLE = "UNUSED";
                 }
             """.trimIndent()
@@ -31,7 +31,7 @@ class CheckstyleCheckerTest {
         TestProject(testProjectDir)
             .pluginSettings(emptyPluginDefinition)
             .fileFromResource("config/checkstyle/checkstyle.xml", "/checkstyle.xml")
-            .file("src/main/java/test/Foo.java", goodCodeSample)
+            .file("src/main/java/good/GoodClass.java", goodCodeSample)
             .successBuild("checkstyleMain")
     }
 
@@ -40,11 +40,27 @@ class CheckstyleCheckerTest {
         TestProject(testProjectDir)
             .pluginSettings(emptyPluginDefinition)
             .fileFromResource("config/checkstyle/checkstyle.xml", "/checkstyle.xml")
-            .file("src/main/java/test/Foo.java", badCodeSample)
+            .file("src/main/java/bad/BadClass.java", badCodeSample)
             .failBuild("checkstyleMain", "Checkstyle rule violations were found")
             .reportContains(
                 "build/reports/checkstyle/main.html",
                 "'static' modifier out of order with the JLS suggestions."
             )
+    }
+
+    @Test
+    fun excludeSources() {
+        TestProject(testProjectDir)
+            .pluginSettings("""
+                qualityCheck {
+                  checkstyle {
+                    exclude = ['**/bad/**']
+                  }
+                }
+            """.trimIndent())
+            .fileFromResource("config/checkstyle/checkstyle.xml", "/checkstyle.xml")
+            .file("src/main/java/good/GoodClass.java", goodCodeSample)
+            .file("src/main/java/bad/BadClass.java", badCodeSample)
+            .successBuild("checkstyleMain")
     }
 }
