@@ -6,7 +6,7 @@ import org.gradle.api.plugins.quality.CheckstyleExtension
 import org.gradle.api.plugins.quality.CheckstylePlugin
 
 object CheckstyleChecker {
-    fun addCheckstyle(root: Project, target: Project, ext: QualityCheckstyleExtension) {
+    fun addChecker(root: Project, target: Project, ext: CheckstyleQualityExtension) {
         if (ext.enabled) {
             target.plugins.apply(CheckstylePlugin::class.java)
             target.extensions.configure(CheckstyleExtension::class.java) {
@@ -15,7 +15,7 @@ object CheckstyleChecker {
                 it.isIgnoreFailures = ext.ignoreFailures
                 it.isShowViolations = ext.showViolations
             }
-            
+
             target.tasks.withType(Checkstyle::class.java) {
                 it.exclude(ext.exclude)
                 it.maxWarnings = ext.maxWarnings

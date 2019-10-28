@@ -1,6 +1,6 @@
 package com.github.neherim.quality.check.checkers
 
-open class QualityCheckstyleExtension {
+open class CheckstyleQualityExtension {
     var enabled: Boolean = true
     var toolVersion: String = "8.6"
     var configFile: String = "config/checkstyle/checkstyle.xml"

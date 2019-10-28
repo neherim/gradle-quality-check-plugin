@@ -10,9 +10,10 @@ plugins {
 }
 
 group 'com.github.neherim'
-version '0.0.1-SNAPSHOT'
+version '0.0.2-SNAPSHOT'
 
 repositories {
+    gradlePluginPortal()
     mavenCentral()
 }
 
@@ -23,6 +24,7 @@ configurations {
 tasks.getByName('pluginUnderTestMetadata').getPluginClasspath().from(configurations.fixtureClasspath)
 
 dependencies {
+    api 'com.github.spotbugs:com.github.spotbugs.gradle.plugin:2.0.0'
     implementation gradleApi()
     compileOnly "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 

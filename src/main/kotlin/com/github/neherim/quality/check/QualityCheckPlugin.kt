@@ -1,6 +1,8 @@
 package com.github.neherim.quality.check
 
 import com.github.neherim.quality.check.checkers.CheckstyleChecker
+import com.github.neherim.quality.check.checkers.PmdChecker
+import com.github.neherim.quality.check.checkers.SpotBugsChecker
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -22,6 +24,8 @@ class QualityCheckPlugin : Plugin<Project> {
     }
 
     private fun addCodeQualityTools(project: Project, rootProject: Project, extension: QualityCheckExtension) {
-        CheckstyleChecker.addCheckstyle(rootProject, project, extension.checkstyleExtension)
+        CheckstyleChecker.addChecker(rootProject, project, extension.checkstyleExtension)
+        PmdChecker.addChecker(rootProject, project, extension.pmdExtension)
+        SpotBugsChecker.addChecker(rootProject, project, extension.spotbugsExtension)
     }
 }
