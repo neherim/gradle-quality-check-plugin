@@ -6,9 +6,9 @@ open class PmdQualityExtension {
     var ruleSetFile = "config/pmd/pmd.xml"
     var ignoreFailures: Boolean = false
     var source = "src"
-    var include: List<String> = listOf()
+    var include: List<String> = listOf("**/*.java")
     var exclude: List<String> = listOf()
-    var consoleOutput = true
-    var xmlReportEnabled = true
-    var htmlReportEnabled = true
+    var consoleOutput = false
+    var xmlReport = true
+    var htmlReport = true
 }

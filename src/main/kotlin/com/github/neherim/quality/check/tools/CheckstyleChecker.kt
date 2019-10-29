@@ -25,6 +25,8 @@ object CheckstyleChecker {
                 it.exclude(ext.exclude)
                 it.maxWarnings = ext.maxWarnings
                 it.maxErrors = ext.maxErrors
+                it.reports.html.isEnabled = ext.htmlReport
+                it.reports.xml.isEnabled = ext.xmlReport
             }
         }
     }

@@ -19,15 +19,15 @@ object PmdChecker {
                 it.isIgnoreFailures = ext.ignoreFailures
                 it.isConsoleOutput = ext.consoleOutput
                 it.ruleSetFiles = root.files(ruleSetFile)
-
+                it.ruleSets = listOf()
             }
 
             target.tasks.withType(Pmd::class.java) {
                 it.source = target.fileTree(ext.source)
                 it.exclude(ext.exclude)
                 it.include(ext.include)
-                it.reports.html.isEnabled = ext.htmlReportEnabled
-                it.reports.xml.isEnabled = ext.xmlReportEnabled
+                it.reports.html.isEnabled = ext.htmlReport
+                it.reports.xml.isEnabled = ext.xmlReport
             }
         }
     }
