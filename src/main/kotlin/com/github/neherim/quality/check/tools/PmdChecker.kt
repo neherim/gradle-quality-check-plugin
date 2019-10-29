@@ -34,6 +34,10 @@ object PmdChecker {
 
     private fun createDefaultRuleSet(file: File) {
         file.parentFile.mkdirs()
-        File(this.javaClass.getResource("/pmd-default-ruleset.xml").toURI()).copyTo(file, false)
+        PmdChecker.javaClass.getResourceAsStream("/pmd-default-ruleset.xml")?.use { input ->
+            file.outputStream().use { output ->
+                input.copyTo(output)
+            }
+        }
     }
 }
