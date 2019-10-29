@@ -1,8 +1,9 @@
 package com.github.neherim.quality.check
 
-import com.github.neherim.quality.check.checkers.CheckstyleQualityExtension
-import com.github.neherim.quality.check.checkers.PmdQualityExtension
-import com.github.neherim.quality.check.checkers.SpotbugsQualityExtension
+import com.github.neherim.quality.check.tools.CheckstyleQualityExtension
+import com.github.neherim.quality.check.tools.JacocoQualityExtension
+import com.github.neherim.quality.check.tools.PmdQualityExtension
+import com.github.neherim.quality.check.tools.SpotbugsQualityExtension
 import org.gradle.api.Action
 
 open class QualityCheckExtension {
@@ -14,4 +15,7 @@ open class QualityCheckExtension {
 
     var spotbugsExtension = SpotbugsQualityExtension()
     fun spotbugs(action: Action<in SpotbugsQualityExtension>) = action.execute(spotbugsExtension)
+    
+    var jacocoExtension = JacocoQualityExtension()
+    fun jacocoExtension(action: Action<in JacocoQualityExtension>) = action.execute(jacocoExtension)
 }

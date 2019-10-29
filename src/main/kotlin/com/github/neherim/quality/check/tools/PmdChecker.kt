@@ -1,4 +1,4 @@
-package com.github.neherim.quality.check.checkers
+package com.github.neherim.quality.check.tools
 
 import org.gradle.api.Project
 import org.gradle.api.plugins.quality.Pmd
@@ -6,7 +6,7 @@ import org.gradle.api.plugins.quality.PmdExtension
 import org.gradle.api.plugins.quality.PmdPlugin
 
 object PmdChecker {
-    fun addChecker(root: Project, target: Project, ext: PmdQualityExtension) {
+    fun addPlugin(root: Project, target: Project, ext: PmdQualityExtension) {
         if (ext.enabled) {
             target.plugins.apply(PmdPlugin::class.java)
             target.extensions.configure(PmdExtension::class.java) {

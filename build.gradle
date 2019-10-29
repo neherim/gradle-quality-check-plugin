@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.neherim'
-version '0.0.3-SNAPSHOT'
+version '0.0.4-SNAPSHOT'
 
 repositories {
     gradlePluginPortal()
@@ -48,8 +48,8 @@ pluginBundle {
 
     plugins {
         qualityCheckPlugin {
-            displayName = 'Gradle Code Quality Check Plugin'
-            tags = ['check']
+            displayName = 'Gradle Quality Check Plugin'
+            tags = ['check', 'pmd', 'checkstyle', 'spotbugs', 'code quality']
             description = 'Checkstyle for every subproject.'
         }
     }
