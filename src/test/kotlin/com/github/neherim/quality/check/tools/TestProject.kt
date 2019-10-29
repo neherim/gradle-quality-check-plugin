@@ -1,7 +1,8 @@
 package com.github.neherim.quality.check.tools
 
 import org.gradle.testkit.runner.GradleRunner
-import org.hamcrest.CoreMatchers
+import org.hamcrest.CoreMatchers.containsString
+import org.hamcrest.CoreMatchers.not
 import org.junit.Assert.assertThat
 import org.junit.rules.TemporaryFolder
 import java.io.File
@@ -51,12 +52,17 @@ class TestProject(private val directory: TemporaryFolder) {
 
     fun failBuild(taskToRun: String, containsMessage: String) = apply {
         val buildResult = run(taskToRun).buildAndFail()
-        assertThat(buildResult.output, buildResult.output, CoreMatchers.containsString(containsMessage))
+        assertThat(buildResult.output, buildResult.output, containsString(containsMessage))
     }
 
-    fun reportContains(reportFile: String, containsMessage: String) {
+    fun reportContains(reportFile: String, containsMessage: String) = apply {
         val reportFileText = directory.root.resolve(reportFile).readText()
-        assertThat(reportFileText, CoreMatchers.containsString(containsMessage))
+        assertThat(reportFileText, containsString(containsMessage))
+    }
+
+    fun reportNotContains(reportFile: String, containsMessage: String) = apply {
+        val reportFileText = directory.root.resolve(reportFile).readText()
+        assertThat(reportFileText, not(containsString(containsMessage)))
     }
 
     private fun run(taskToRun: String) =

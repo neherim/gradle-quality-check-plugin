@@ -23,14 +23,10 @@ object SpotBugsChecker {
             target.tasks.withType(SpotBugsTask::class.java) {
                 it.exclude(ext.exclude)
                 it.include(ext.include)
-                when (ext.reportFormat) {
-                    "html" -> it.reports.html.isEnabled = true
-                    "xml" -> it.reports.xml.isEnabled = true
-                    "text" -> it.reports.text.isEnabled = true
-                    "emacs" -> it.reports.emacs.isEnabled = true
-                    else -> throw IllegalArgumentException("Unknown spotbugs report format = ${ext.reportFormat}. " +
-                            "Available report formats: html, xml, text, emacs")
-                }
+                it.reports.html.isEnabled = ext.reportFormat == "html" 
+                it.reports.xml.isEnabled = ext.reportFormat == "xml" 
+                it.reports.text.isEnabled = ext.reportFormat == "text" 
+                it.reports.emacs.isEnabled = ext.reportFormat == "emacs"
             }
         }
     }
