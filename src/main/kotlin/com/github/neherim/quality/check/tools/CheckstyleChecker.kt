@@ -31,6 +31,10 @@ object CheckstyleChecker {
 
     private fun createDefaultRuleSet(file: File) {
         file.parentFile.mkdirs()
-        File(this.javaClass.getResource("/checkstyle-default.xml").toURI()).copyTo(file, false)
+        CheckstyleChecker.javaClass.getResourceAsStream("/checkstyle-default.xml")?.use { input ->
+            file.outputStream().use { output ->
+                input.copyTo(output)
+            }
+        }
     }
 }
