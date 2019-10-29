@@ -5,6 +5,7 @@ import org.gradle.testing.jacoco.plugins.JacocoPlugin
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 import org.gradle.testing.jacoco.tasks.JacocoReport
 
+
 object JacocoTestCoverage {
 
     fun addPlugin(root: Project, target: Project, ext: JacocoQualityExtension) {
@@ -18,6 +19,7 @@ object JacocoTestCoverage {
                 it.reports.xml.isEnabled = ext.xmlReportEnabled
                 it.reports.html.isEnabled = ext.htmlReportEnabled
                 it.reports.csv.isEnabled = ext.csvReportEnabled
+                it.executionData.setFrom(target.fileTree(target.buildDir).include("/jacoco/*.exec"))
             }
 
             if (ext.exclude.isNotEmpty()) {
