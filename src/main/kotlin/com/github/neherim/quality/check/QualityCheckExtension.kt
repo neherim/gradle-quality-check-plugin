@@ -17,5 +17,5 @@ open class QualityCheckExtension {
     fun spotbugs(action: Action<in SpotbugsQualityExtension>) = action.execute(spotbugsExtension)
     
     var jacocoExtension = JacocoQualityExtension()
-    fun jacocoExtension(action: Action<in JacocoQualityExtension>) = action.execute(jacocoExtension)
+    fun jacoco(action: Action<in JacocoQualityExtension>) = action.execute(jacocoExtension)
 }

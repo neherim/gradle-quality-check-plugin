@@ -5,6 +5,6 @@ open class JacocoQualityExtension {
     var exclude: List<String> = listOf()
     var toolVersion: String = "0.8.4"
     var xmlReportEnabled = true
-    var csvReportEnabled = true
+    var csvReportEnabled = false
     var htmlReportEnabled = true
 }
