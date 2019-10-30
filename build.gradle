@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'com.github.neherim'
-version '0.0.9-SNAPSHOT'
+version '0.0.10-SNAPSHOT'
 
 repositories {
     gradlePluginPortal()
@@ -25,7 +25,6 @@ tasks.getByName('pluginUnderTestMetadata').getPluginClasspath().from(configurati
 
 dependencies {
     api 'info.solidsoft.pitest:info.solidsoft.pitest.gradle.plugin:1.4.5'
-    api 'org.pitest:pitest-junit5-plugin:0.10'
     implementation gradleApi()
     api 'com.github.spotbugs:com.github.spotbugs.gradle.plugin:2.0.0'
     compileOnly "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
