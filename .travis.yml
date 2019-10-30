@@ -19,5 +19,5 @@ jobs:
     - stage: build
       script: ./gradlew clean build check
     - stage: publish
-      script: ./gradlew publishPlugins
+      script: ./gradlew publishPlugins -Dgradle.publish.key=$GRADLE_PUBLISH_KEY -Dgradle.publish.secret=$GRADLE_PUBLISH_SECRET
       if: branch = master

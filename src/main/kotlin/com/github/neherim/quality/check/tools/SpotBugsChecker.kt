@@ -4,6 +4,7 @@ import com.github.spotbugs.SpotBugsExtension
 import com.github.spotbugs.SpotBugsPlugin
 import com.github.spotbugs.SpotBugsTask
 import org.gradle.api.Project
+import java.lang.IllegalArgumentException
 
 object SpotBugsChecker {
     fun addPlugin(root: Project, target: Project, ext: SpotbugsQualityExtension) {
@@ -22,12 +23,10 @@ object SpotBugsChecker {
             target.tasks.withType(SpotBugsTask::class.java) {
                 it.exclude(ext.exclude)
                 it.include(ext.include)
-                when (ext.reportFormat) {
-                    SpotBugsReportFormat.HTML -> it.reports.html.isEnabled = true
-                    SpotBugsReportFormat.XML -> it.reports.xml.isEnabled = true
-                    SpotBugsReportFormat.TEXT -> it.reports.text.isEnabled = true
-                    SpotBugsReportFormat.EMACS -> it.reports.emacs.isEnabled = true
-                }
+                it.reports.html.isEnabled = ext.reportFormat == "html" 
+                it.reports.xml.isEnabled = ext.reportFormat == "xml" 
+                it.reports.text.isEnabled = ext.reportFormat == "text" 
+                it.reports.emacs.isEnabled = ext.reportFormat == "emacs"
             }
         }
     }

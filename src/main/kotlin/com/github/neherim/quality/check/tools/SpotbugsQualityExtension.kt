@@ -9,9 +9,5 @@ open class SpotbugsQualityExtension {
     var reportLevel: String = "low"
     var include: List<String> = listOf("**/*.java")
     var exclude: List<String> = listOf()
-    var reportFormat: SpotBugsReportFormat = SpotBugsReportFormat.XML
-}
-
-enum class SpotBugsReportFormat {
-    HTML, XML, TEXT, EMACS
+    var reportFormat: String = "html"
 }
