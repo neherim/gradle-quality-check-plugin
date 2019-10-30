@@ -20,6 +20,7 @@ object PitestTestCoverage {
                 it.timestampedReports.set(ext.timestampedReports)
                 it.outputFormats.empty()
                 it.outputFormats.addAll(ext.outputFormats)
+                it.excludedClasses.set(ext.excludedClasses)
                 if (ext.targetClasses.isNotEmpty()) {
                     it.targetClasses.set(ext.targetClasses)
                 }
