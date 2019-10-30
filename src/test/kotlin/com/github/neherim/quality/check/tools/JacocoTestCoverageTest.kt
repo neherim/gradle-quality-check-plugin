@@ -104,7 +104,7 @@ class JacocoTestCoverageTest {
             .successBuild("test")
             .successBuild("integrationTest")
             .successBuild("jacocoTestReport")
-            .reportContains("build/reports/jacoco/test/jacocoTestReport.csv", "GoodClass,3,4,0,0,1,1,1,1,1,1")
+            .reportContains("build/reports/jacoco/test/jacocoTestReport.csv", "GoodClass,3,8,0,0,1,2,1,2,1,2")
     }
 
     @Test
@@ -116,11 +116,9 @@ class JacocoTestCoverageTest {
             )
             .file("src/main/java/good/GoodClass.java", codeSample)
             .file("src/test/java/good/GoodTest.java", testSample)
-            .successBuild("tasks")
-            .successBuild("Wow")
             .successBuild("test")
             .successBuild("jacocoTestReport")
-            .reportContains("build/reports/jacoco/test/jacocoTestReport.csv", "GoodClass,3,4,0,0,1,1,1,1,1,1")
+            .reportContains("build/reports/jacoco/test/jacocoTestReport.csv", "GoodClass,7,4,0,0,2,1,2,1,2,1")
     }
 
     @Test
@@ -135,7 +133,7 @@ class JacocoTestCoverageTest {
             .file("src/test/java/good/GoodTest.java", testSample)
             .successBuild("test")
             .successBuild("jacocoTestReport")
-            .reportContains("build/reports/jacoco/test/jacocoTestReport.csv", "GoodClass,3,4,0,0,1,1,1,1,1,1")
+            .reportContains("build/reports/jacoco/test/jacocoTestReport.csv", "GoodClass,7,4,0,0,2,1,2,1,2,1")
             .reportNotContains("build/reports/jacoco/test/jacocoTestReport.csv", "GeneratedClass")
     }
 }
