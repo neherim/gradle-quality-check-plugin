@@ -1,23 +1,26 @@
 package com.github.neherim.quality.check.tools
 
 import info.solidsoft.gradle.pitest.PitestPlugin
+import info.solidsoft.gradle.pitest.PitestPluginExtension
 import org.gradle.api.Project
-import org.gradle.testing.jacoco.plugins.JacocoPlugin
-import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
-import org.gradle.testing.jacoco.tasks.JacocoReport
+
 
 object PitestTestCoverage {
 
-    fun addPlugin(root: Project, target: Project) {
-        target.plugins.apply(PitestPlugin::class.java)
-        target.extensions.configure(JacocoPluginExtension::class.java) {
-            it.toolVersion = ext.toolVersion
-        }
-
-        target.tasks.withType(JacocoReport::class.java) {
-            it.reports.xml.isEnabled = ext.xmlReportEnabled
-            it.reports.html.isEnabled = ext.htmlReportEnabled
-            it.reports.csv.isEnabled = ext.csvReportEnabled
+    fun addPlugin(root: Project, target: Project, ext: PitestQualityExtension) {
+        if (ext.enabled) {
+            target.plugins.apply(PitestPlugin::class.java)
+            target.extensions.configure(PitestPluginExtension::class.java) {
+                it.pitestVersion.set(ext.toolVersion)
+                it.testPlugin.set(ext.testPlugin)
+                it.threads.set(ext.threads)
+                it.timestampedReports.set(ext.timestampedReports)
+                it.outputFormats.empty()
+                it.outputFormats.addAll(ext.outputFormats)
+                if (ext.targetClasses.isNotEmpty()) {
+                    it.targetClasses.set(ext.targetClasses)
+                }
+            }
         }
     }
 }
