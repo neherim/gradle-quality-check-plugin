@@ -6,7 +6,7 @@ open class SpotbugsQualityExtension {
     var excludeFilter: String = "config/spotbugs/spotbugs.xml"
     var ignoreFailures: Boolean = false
     var effort: String = "max"
-    var reportLevel: String = "low"
+    var reportLevel: String = "medium"
     var include: List<String> = listOf("**/*.java")
     var exclude: List<String> = listOf()
     var reportFormat: String = "html"
