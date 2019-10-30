@@ -1,9 +1,6 @@
 package com.github.neherim.quality.check
 
-import com.github.neherim.quality.check.tools.CheckstyleChecker
-import com.github.neherim.quality.check.tools.JacocoTestCoverage
-import com.github.neherim.quality.check.tools.PmdChecker
-import com.github.neherim.quality.check.tools.SpotBugsChecker
+import com.github.neherim.quality.check.tools.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -29,5 +26,6 @@ class QualityCheckPlugin : Plugin<Project> {
         PmdChecker.addPlugin(rootProject, project, extension.pmdExtension)
         SpotBugsChecker.addPlugin(rootProject, project, extension.spotbugsExtension)
         JacocoTestCoverage.addPlugin(rootProject, project, extension.jacocoExtension)
+        PitestTestCoverage.addPlugin(rootProject, project, extension.pitestExtension)
     }
 }

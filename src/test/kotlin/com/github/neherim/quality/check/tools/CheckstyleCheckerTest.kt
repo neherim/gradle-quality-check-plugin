@@ -30,7 +30,6 @@ class CheckstyleCheckerTest {
     fun success() {
         TestProject(testProjectDir)
             .pluginSettings(emptyPluginDefinition)
-            .fileFromResource("config/checkstyle/checkstyle.xml", "/checkstyle.xml")
             .file("src/main/java/good/GoodClass.java", goodCodeSample)
             .successBuild("checkstyleMain")
     }
@@ -39,7 +38,6 @@ class CheckstyleCheckerTest {
     fun fail() {
         TestProject(testProjectDir)
             .pluginSettings(emptyPluginDefinition)
-            .fileFromResource("config/checkstyle/checkstyle.xml", "/checkstyle.xml")
             .file("src/main/java/bad/BadClass.java", badCodeSample)
             .failBuild("checkstyleMain", "Checkstyle rule violations were found")
             .reportContains(
@@ -58,7 +56,6 @@ class CheckstyleCheckerTest {
                   }
                 }
             """.trimIndent())
-            .fileFromResource("config/checkstyle/checkstyle.xml", "/checkstyle.xml")
             .file("src/main/java/good/GoodClass.java", goodCodeSample)
             .file("src/main/java/bad/BadClass.java", badCodeSample)
             .successBuild("checkstyleMain")
