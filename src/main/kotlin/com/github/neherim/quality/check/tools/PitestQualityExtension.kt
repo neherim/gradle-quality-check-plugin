@@ -8,5 +8,5 @@ open class PitestQualityExtension {
     var outputFormats = listOf("XML", "HTML")
     var targetClasses = setOf<String>()
     var timestampedReports = false
-    val excludedClasses = setOf<String>()
+    var excludedClasses = setOf<String>()
 }
