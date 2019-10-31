@@ -7,4 +7,5 @@ open class JacocoQualityExtension {
     var xmlReportEnabled = true
     var csvReportEnabled = false
     var htmlReportEnabled = true
+    var reportsDestination: String? = null
 }
