@@ -23,6 +23,7 @@ object CheckstyleChecker {
 
             target.tasks.withType(Checkstyle::class.java) {
                 it.exclude(ext.exclude)
+                it.include(ext.include)
                 it.maxWarnings = ext.maxWarnings
                 it.maxErrors = ext.maxErrors
                 it.reports.html.isEnabled = ext.htmlReport

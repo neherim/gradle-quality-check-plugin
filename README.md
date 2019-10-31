@@ -3,15 +3,17 @@
 
 ### Supported tools
 
- * [`Checkstyle`](docs/tools/checkstyle.md)
- * [`PMD`](docs/tools/pmd.md)
- * [`FindBugs`](docs/tools/findbugs.md)
+ * [`Checkstyle`](https://docs.gradle.org/current/userguide/checkstyle_plugin.html)
+ * [`PMD`](https://docs.gradle.org/current/userguide/pmd_plugin.html)
+ * [`SpotBugs`](https://plugins.gradle.org/plugin/com.github.spotbugs)
+ * [`JaCoCo`](https://docs.gradle.org/current/userguide/jacoco_plugin.html)
+ * [`Pitest`](https://plugins.gradle.org/plugin/info.solidsoft.pitest)
  
 ### Add the plugin to your project
 Using the plugins DSL:
 ```groovy
 plugins {
-  id "com.github.neherim.quality.check" version "0.1.1"
+  id "com.github.neherim.quality.check" version "0.1.2"
 }
 ```
 
