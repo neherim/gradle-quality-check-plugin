@@ -13,7 +13,7 @@
 Using the plugins DSL:
 ```groovy
 plugins {
-  id "com.github.neherim.quality.check" version "0.1.3"
+  id "com.github.neherim.quality.check" version "0.1.4"
 }
 ```
 
@@ -26,7 +26,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.github.neherim:gradle-quality-check-plugin:0.1.3"
+    classpath "gradle.plugin.com.github.neherim:gradle-quality-check-plugin:0.1.4"
   }
 }
 

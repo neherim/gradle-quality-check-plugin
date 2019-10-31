@@ -28,6 +28,10 @@ object CheckstyleChecker {
                 it.maxErrors = ext.maxErrors
                 it.reports.html.isEnabled = ext.htmlReport
                 it.reports.xml.isEnabled = ext.xmlReport
+                if (!ext.reportsDestination.isNullOrBlank()) {
+                    it.reports.html.destination = target.file(ext.reportsDestination)
+                    it.reports.xml.destination = target.file(ext.reportsDestination)
+                }
             }
         }
     }
