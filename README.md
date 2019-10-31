@@ -48,6 +48,7 @@ qualityCheck {
     maxErrors = 0
     htmlReport = true
     xmlReport = true
+    reportsDestination = ""
   }
   pmd {
     enabled = true
@@ -80,6 +81,7 @@ qualityCheck {
     xmlReportEnabled = true
     csvReportEnabled = false
     htmlReportEnabled = true
+    reportsDestination = ""
   }
   pitest {
     enabled = true
