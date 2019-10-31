@@ -19,12 +19,10 @@ object JacocoTestCoverage {
                 it.reports.xml.isEnabled = ext.xmlReportEnabled
                 it.reports.html.isEnabled = ext.htmlReportEnabled
                 it.reports.csv.isEnabled = ext.csvReportEnabled
+                it.reports.html.destination = ext.htmlReportsDestination
+                it.reports.xml.destination = ext.xmlReportsDestination
+                it.reports.csv.destination = ext.csvReportsDestination
                 it.executionData.setFrom(target.fileTree(target.buildDir).include("/jacoco/*.exec"))
-                if (!ext.reportsDestination.isNullOrBlank()) {
-                    it.reports.html.destination = target.file(ext.reportsDestination)
-                    it.reports.xml.destination = target.file(ext.reportsDestination)
-                    it.reports.csv.destination = target.file(ext.reportsDestination)
-                }
             }
 
             if (ext.exclude.isNotEmpty()) {

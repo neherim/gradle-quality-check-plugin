@@ -13,7 +13,7 @@
 Using the plugins DSL:
 ```groovy
 plugins {
-  id "com.github.neherim.quality.check" version "0.1.4"
+  id "com.github.neherim.quality.check" version "0.1.5"
 }
 ```
 
@@ -26,7 +26,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.github.neherim:gradle-quality-check-plugin:0.1.4"
+    classpath "gradle.plugin.com.github.neherim:gradle-quality-check-plugin:0.1.5"
   }
 }
 
@@ -48,7 +48,6 @@ qualityCheck {
     maxErrors = 0
     htmlReport = true
     xmlReport = true
-    reportsDestination = ""
   }
   pmd {
     enabled = true
@@ -81,7 +80,9 @@ qualityCheck {
     xmlReportEnabled = true
     csvReportEnabled = false
     htmlReportEnabled = true
-    reportsDestination = ""
+    xmlReportsDestination = file(null)
+    csvReportsDestination = file(null)
+    htmlReportsDestination = file(null)
   }
   pitest {
     enabled = true

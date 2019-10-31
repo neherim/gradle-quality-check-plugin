@@ -12,5 +12,4 @@ open class CheckstyleQualityExtension {
     var maxErrors = 0
     var htmlReport = true
     var xmlReport = true
-    var reportsDestination: String? = null
 }
