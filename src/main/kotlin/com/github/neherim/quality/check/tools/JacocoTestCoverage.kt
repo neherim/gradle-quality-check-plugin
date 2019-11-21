@@ -29,11 +29,6 @@ object JacocoTestCoverage {
                     it.reports.csv.destination = ext.csvReportsDestination
                 }
                 it.executionData.setFrom(target.fileTree(target.buildDir).include("/jacoco/*.exec"))
-                if (!ext.reportsDestination.isNullOrBlank()) {
-                    it.reports.html.destination = target.file(ext.reportsDestination)
-                    it.reports.xml.destination = target.file(ext.reportsDestination)
-                    it.reports.csv.destination = target.file(ext.reportsDestination)
-                }
             }
 
             if (ext.exclude.isNotEmpty()) {
