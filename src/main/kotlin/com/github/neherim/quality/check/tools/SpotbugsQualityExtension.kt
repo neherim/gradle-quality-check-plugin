@@ -9,6 +9,6 @@ open class SpotbugsQualityExtension {
     var reportLevel = "medium"
     var include = listOf("**/*.java")
     var exclude = listOf<String>()
-    var reportFormat = "html"
+    var reportFormat = "xml"
     var plugins = listOf("findsecbugs")
 }

@@ -5,7 +5,7 @@ import java.io.File
 open class JacocoQualityExtension {
     var enabled = true
     var exclude = listOf<String>()
-    var toolVersion = "0.8.4"
+    var toolVersion = "0.8.5"
     var xmlReportEnabled = true
     var csvReportEnabled = false
     var htmlReportEnabled = true
