@@ -1,5 +1,7 @@
 package com.github.neherim.quality.check.tools
 
+import java.io.File
+
 open class JacocoQualityExtension {
     var enabled = true
     var exclude = listOf<String>()
@@ -7,5 +9,7 @@ open class JacocoQualityExtension {
     var xmlReportEnabled = true
     var csvReportEnabled = false
     var htmlReportEnabled = true
-    var reportsDestination: String? = null
+    var xmlReportsDestination: File? = null
+    var csvReportsDestination: File? = null
+    var htmlReportsDestination: File? = null
 }
