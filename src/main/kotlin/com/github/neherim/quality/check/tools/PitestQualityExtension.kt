@@ -9,4 +9,5 @@ open class PitestQualityExtension {
     var targetClasses = setOf<String>()
     var timestampedReports = false
     var excludedClasses = setOf<String>()
+    var useClasspathFile = false
 }
