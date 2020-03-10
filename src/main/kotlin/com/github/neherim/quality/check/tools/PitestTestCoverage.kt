@@ -21,6 +21,7 @@ object PitestTestCoverage {
                 it.outputFormats.empty()
                 it.outputFormats.addAll(ext.outputFormats)
                 it.excludedClasses.set(ext.excludedClasses)
+                it.useClasspathFile.set(ext.useClasspathFile)
                 if (ext.targetClasses.isNotEmpty()) {
                     it.targetClasses.set(ext.targetClasses)
                 }
