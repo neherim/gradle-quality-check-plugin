@@ -2,7 +2,7 @@ package com.github.neherim.quality.check.tools
 
 open class PmdQualityExtension {
     var enabled = true
-    var toolVersion = "6.19.0"
+    var toolVersion = "6.22.0"
     var ruleSetFile = "config/pmd/pmd.xml"
     var ignoreFailures = false
     var source = "src"

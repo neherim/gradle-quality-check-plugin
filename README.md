@@ -13,7 +13,7 @@
 Using the plugins DSL:
 ```groovy
 plugins {
-  id "com.github.neherim.quality.check" version "0.1.6"
+  id "com.github.neherim.quality.check" version "0.1.8"
 }
 ```
 
@@ -26,7 +26,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.github.neherim:gradle-quality-check-plugin:0.1.6"
+    classpath "gradle.plugin.com.github.neherim:gradle-quality-check-plugin:0.1.8"
   }
 }
 
@@ -38,7 +38,7 @@ apply plugin: "com.github.neherim.quality.check"
 qualityCheck {
   checkstyle {
     enabled = true
-    toolVersion = "8.26"
+    toolVersion = "8.30"
     configFile = "config/checkstyle/checkstyle.xml"
     ignoreFailures = false
     showViolations = true
@@ -52,7 +52,7 @@ qualityCheck {
   }
   pmd {
     enabled = true
-    toolVersion = "6.19.0"
+    toolVersion = "6.22.0"
     ruleSetFile = "config/pmd/pmd.xml"
     ignoreFailures = false
     source = "src"
@@ -64,7 +64,7 @@ qualityCheck {
   }
   spotbugs {
     enabled = true
-    toolVersion = "3.1.12"
+    toolVersion = "4.0.1"
     excludeFilter = "config/spotbugs/spotbugs.xml"
     ignoreFailures = false
     effort = "max"
@@ -77,7 +77,7 @@ qualityCheck {
   jacoco {
     enabled = true
     exclude = []
-    toolVersion = "0.8.4"
+    toolVersion = "0.8.5"
     xmlReportEnabled = true
     csvReportEnabled = false
     htmlReportEnabled = true
@@ -87,7 +87,7 @@ qualityCheck {
   }
   pitest {
     enabled = true
-    toolVersion = "1.4.10"
+    toolVersion = "1.5.0"
     testPlugin = "junit" // junit | junit5 
     threads = 4
     outputFormats = ["XML", "HTML"]
