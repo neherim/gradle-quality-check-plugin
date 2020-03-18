@@ -2,7 +2,7 @@ package com.github.neherim.quality.check.tools
 
 open class CheckstyleQualityExtension {
     var enabled = true
-    var toolVersion = "8.26"
+    var toolVersion = "8.30"
     var configFile = "config/checkstyle/checkstyle.xml"
     var ignoreFailures = false
     var showViolations = true

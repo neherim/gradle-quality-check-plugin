@@ -2,7 +2,7 @@ package com.github.neherim.quality.check.tools
 
 open class PitestQualityExtension {
     var enabled = true
-    var toolVersion = "1.4.10"
+    var toolVersion = "1.5.0"
     var testPlugin = "junit"
     var threads = 4
     var outputFormats = listOf("XML", "HTML")
