@@ -2,7 +2,7 @@ package com.github.neherim.quality.check.tools
 
 open class SpotbugsQualityExtension {
     var enabled = true
-    var toolVersion = "3.1.12"
+    var toolVersion = "4.0.1"
     var excludeFilter = "config/spotbugs/spotbugs.xml"
     var ignoreFailures = false
     var effort = "max"
